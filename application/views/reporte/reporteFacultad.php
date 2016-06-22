@@ -74,9 +74,10 @@ foreach($carreras as $carrera) {
         $objPHPExcel->getActiveSheet()->getStyle('A'.$i.':M'.$i)->getFont()->setSize(10);
         $i++;
     }
-    if(strlen($carrera_nombre) > 12) {
-        $carrera_nombre = substr($carrera_nombre,0,12);
-    }
+
+    $carrera_nombre = character_limiter($carrera_nombre, 12);
+    $carrera_nombre = entities_to_ascii($carrera_nombre);
+    
     $objPHPExcel->getActiveSheet()->setTitle($carrera_nombre);
     $objPHPExcel->createSheet();
     $pos++;

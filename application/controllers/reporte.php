@@ -8,6 +8,7 @@ class Reporte extends CI_Controller {
         $this->load->model('facultad_model');
         $this->load->model('carrera_model');
         $this->load->model('registro_model');
+        $this->load->helper('text');
     }
     
     public function index() {
